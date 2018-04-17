@@ -80,23 +80,17 @@ def make_twitter_request(twitter_api_func, max_errors=10, *args, **kw):
                 print >> sys.stderr, "Too many consecutive errors...bailing out."
                 raise
 
-
 def oauth_login():
-    # XXX: Go to http://twitter.com/apps/new to create an app and get values
-    # for these credentials that you'll need to provide in place of these
-    # empty string values that are defined as placeholders.
-    # See https://dev.twitter.com/docs/auth/oauth for more information
-    # on Twitter's OAuth implementation.
+	CONSUMER_KEY = 'QQ8tvYublOKYWNXncsz6yAaTF'
+	CONSUMER_SECRET = 'XQ7NdcMUcXYhChh4ec4inMFn0aRRWTjTL6s2L6fLsuKiFWterz'
+	OAUTH_TOKEN = '934175051930308609-CNSI6N2RdSHPBbBd2gatkK4887JKCQS'
+	OAUTH_TOKEN_SECRET = 'bHgJnEQrIINjBjJQhVKvaYzw8pOVAQEcG936eBYQJx63x'
 
-    CONSUMER_KEY = 'tWiQZkBvZquiT9rULi3f0PK7P'
-    CONSUMER_SECRET = 'yo8xVHWYEW2s4gBj0KF9mBtKu4KK5Ysoip1opBoulo9RA6dAqJ'
-    OAUTH_TOKEN = '820130448839938048-bswdK22Td8RijX4MxXf4GCpumc233jJ'
-    OAUTH_TOKEN_SECRET = 'ELqi4RCFW6z18TPp2Zmo6oyE0lQZKhgIEe0kyblcQY8el'
-    auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
+	auth = twitter.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET,
+							CONSUMER_KEY, CONSUMER_SECRET)
 
-    twitter_api = twitter.Twitter(auth=auth)
-    return twitter_api
-
+	twitter_api = twitter.Twitter(auth=auth)
+	return twitter_api
 
 def harvest_user_timeline(twitter_api, screen_name=None, user_id=None, max_results=1000):
 
@@ -160,13 +154,15 @@ def harvest_user_timeline(twitter_api, screen_name=None, user_id=None, max_resul
     print >> sys.stderr, 'Done fetching tweets'
 
     return results[:max_results]
+	
 
 
 
 def main():
     twitter_api = oauth_login()
-    tweets = harvest_user_timeline(twitter_api, screen_name="TheRealDonnaLe", max_results=200)
-    save_json("tweets_timeline", tweets)
+    tweets = harvest_user_timeline(twitter_api, screen_name="foxxymimi", max_results=200)
+    save_json("retweets_timeline", tweets)
+	
 
 
 if __name__ == "__main__":
