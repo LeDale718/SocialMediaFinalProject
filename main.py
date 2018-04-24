@@ -11,7 +11,7 @@ import io, json
 def save_json(filename, data):
     with io.open('{0}.json'.format(filename),
                  'w', encoding='utf-8') as f:
-        f.write(unicode(json.dumps(data, ensure_ascii=False)))
+        f.write(unicode(json.dumps(data, indent = 1, ensure_ascii=False)))
 
 def make_twitter_request(twitter_api_func, max_errors=10, *args, **kw):
     # A nested helper function that handles common HTTPErrors. Return an updated
@@ -117,22 +117,9 @@ def harvest_user_timeline(twitter_api, screen_name=None, user_id=None, max_resul
         tweets = []
 
     results += tweets
-
     print >> sys.stderr, 'Fetched %i tweets' % len(tweets)
 
     page_num = 1
-
-    # Many Twitter accounts have fewer than 200 tweets so you don't want to enter
-    # the loop and waste a precious request if max_results = 200.
-
-    # Note: Analogous optimizations could be applied inside the loop to try and
-    # save requests. e.g. Don't make a third request if you have 287 tweets out of
-    # a possible 400 tweets after your second request. Twitter does do some
-    # post-filtering on censored and deleted tweets out of batches of 'count', though,
-    # so you can't strictly check for the number of results being 200. You might get
-    # back 198, for example, and still have many more tweets to go. If you have the
-    # total number of tweets for an account (by GET /users/lookup/), then you could
-    # simply use this value as a guide.
 
     if max_results == kw['count']:
         page_num = max_pages # Prevent loop entry
@@ -148,21 +135,55 @@ def harvest_user_timeline(twitter_api, screen_name=None, user_id=None, max_resul
         results += tweets
 
         print >> sys.stderr, 'Fetched %i tweets' % (len(tweets),)
-
         page_num += 1
 
     print >> sys.stderr, 'Done fetching tweets'
-
     return results[:max_results]
-	
 
+
+def harvest_user_likes(twitter_api, screen_name=None, user_id=None, max_results=1000):
+
+    max_pages = 16
+    results = []
+
+	#Fetch the last 500 favorites of the specified username
+    tweet_list=twitter_api.favorites.list(screen_name=screen_name, count=500, since_id=1)
+    results += tweet_list
+    page_num = 1
+
+    if max_results == 200:
+        page_num = max_pages
+
+    while page_num < max_pages and len(tweet_list) > 0 and len(results) < max_results:
+        sid = min([ tweet['id'] for tweet in tweet_list]) - 1
+        tweet_list=twitter_api.favorites.list(screen_name=screen_name, count=500, max_id=sid)
+        results += tweet_list
+        page_num += 1
+	# #loop through the list of tweetss
+	# for tweet in results:
+	# 	try:
+    #
+	# 		#get the expanded_url
+	# 		#url=tweet['entities']['urls'][0]['expanded_url']
+	# 		#this is the text of the tweet
+	# 		tweet_text=tweet['text']
+	# 		print str(tweet_text)
+    #
+	# 	except Exception, e:
+	# 		print 'no url in tweet'
+	# 		#print e
+    print >> sys.stderr, 'Length of likes %i ' % (len(results),)
+    return results
+	#print json.dumps(urls, indent=1)
 
 
 def main():
     twitter_api = oauth_login()
-    tweets = harvest_user_timeline(twitter_api, screen_name="foxxymimi", max_results=200)
-    save_json("retweets_timeline", tweets)
-	
+    # tweets = harvest_user_timeline(twitter_api, screen_name="foxxymimi", max_results=200)
+    # save_json("retweets_timeline", tweets)
+    likes = harvest_user_likes(twitter_api, screen_name="reallychizzy")
+    print(likes)
+    save_json("likes", likes)
 
 
 if __name__ == "__main__":
