@@ -176,14 +176,34 @@ def harvest_user_likes(twitter_api, screen_name=None, user_id=None, max_results=
     return results
 	#print json.dumps(urls, indent=1)
 
+def get_republican_training_data(twitter_api, filename):
+    gop_tweets = harvest_user_timeline(twitter_api, screen_name="GOP", max_results=30000)
+    gop_likes = harvest_user_likes(twitter_api, screen_name="GOP")
+    save_json(filename+"_tweets_timeline", gop_tweets)
+    save_json(filename+"_likes_timeline", gop_likes)
+
+
+def get_democrat_training_data(twitter_api, filename):
+    dnc_tweets = harvest_user_timeline(twitter_api, screen_name="TheDemocrats", max_results=30000)
+    dnc_likes = harvest_user_likes(twitter_api, screen_name="TheDemocrats")
+    save_json(filename+"_tweets_timeline", dnc_tweets)
+    save_json(filename+"_likes_timeline", dnc_likes)
+
 
 def main():
     twitter_api = oauth_login()
     # tweets = harvest_user_timeline(twitter_api, screen_name="foxxymimi", max_results=200)
     # save_json("retweets_timeline", tweets)
-    likes = harvest_user_likes(twitter_api, screen_name="reallychizzy")
-    print(likes)
-    save_json("likes", likes)
+
+    # likes = harvest_user_likes(twitter_api, screen_name="reallychizzy")
+    # print(likes)
+    # save_json("likes", likes)
+
+
+    # ----- Dont run this code again unless you change the filename, it will
+    # ----- overwrite the json data files
+    # get_republican_training_data(twitter_api,"gop")
+    # get_democrat_training_data(twitter_api,"dnc")
 
 
 if __name__ == "__main__":

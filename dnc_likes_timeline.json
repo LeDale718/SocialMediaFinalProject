@@ -1,0 +1,1063 @@
+[
+ {
+  "contributors": null, 
+  "truncated": false, 
+  "text": "We are not sending our best to Congress https://t.co/eJyIoG5tel", 
+  "is_quote_status": true, 
+  "in_reply_to_status_id": null, 
+  "id": 984128895547990016, 
+  "favorite_count": 5475, 
+  "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+  "quoted_status_id": 984117687289868290, 
+  "retweeted": false, 
+  "coordinates": null, 
+  "quoted_status": {
+   "contributors": null, 
+   "truncated": true, 
+   "text": ".@USRepLong: \"What was FaceMash and is it still up and running?\"\n\nMark Zuckerberg: “No Congressman, FaceMash was a… https://t.co/5ZaEQNpCNJ", 
+   "is_quote_status": false, 
+   "in_reply_to_status_id": null, 
+   "id": 984117687289868290, 
+   "favorite_count": 987, 
+   "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>", 
+   "retweeted": false, 
+   "coordinates": null, 
+   "entities": {
+    "symbols": [], 
+    "user_mentions": [
+     {
+      "id": 1444015610, 
+      "indices": [
+       1, 
+       11
+      ], 
+      "id_str": "1444015610", 
+      "screen_name": "USRepLong", 
+      "name": "U.S. Rep. Billy Long"
+     }
+    ], 
+    "hashtags": [], 
+    "urls": [
+     {
+      "url": "https://t.co/5ZaEQNpCNJ", 
+      "indices": [
+       116, 
+       139
+      ], 
+      "expanded_url": "https://twitter.com/i/web/status/984117687289868290", 
+      "display_url": "twitter.com/i/web/status/9…"
+     }
+    ]
+   }, 
+   "in_reply_to_screen_name": null, 
+   "in_reply_to_user_id": null, 
+   "retweet_count": 361, 
+   "id_str": "984117687289868290", 
+   "favorited": false, 
+   "user": {
+    "follow_request_sent": false, 
+    "has_extended_profile": false, 
+    "profile_use_background_image": true, 
+    "default_profile_image": false, 
+    "id": 48364045, 
+    "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/831983203/40ebd89ede16b676f2286cecaa307531.jpeg", 
+    "verified": true, 
+    "translator_type": "none", 
+    "profile_text_color": "333333", 
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/767159371730223108/fw9ml_Ys_normal.jpg", 
+    "profile_sidebar_fill_color": "C0DFEC", 
+    "entities": {
+     "url": {
+      "urls": [
+       {
+        "url": "https://t.co/7mnR2AtpOn", 
+        "indices": [
+         0, 
+         23
+        ], 
+        "expanded_url": "http://abcnews.com", 
+        "display_url": "abcnews.com"
+       }
+      ]
+     }, 
+     "description": {
+      "urls": []
+     }
+    }, 
+    "followers_count": 8004, 
+    "profile_sidebar_border_color": "000000", 
+    "id_str": "48364045", 
+    "profile_background_color": "022330", 
+    "listed_count": 311, 
+    "is_translation_enabled": false, 
+    "utc_offset": -14400, 
+    "statuses_count": 20537, 
+    "description": "@ABC News / @WaltDisneyCo", 
+    "friends_count": 2171, 
+    "location": "", 
+    "profile_link_color": "0084B4", 
+    "profile_image_url": "http://pbs.twimg.com/profile_images/767159371730223108/fw9ml_Ys_normal.jpg", 
+    "following": false, 
+    "geo_enabled": false, 
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/48364045/1517078268", 
+    "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/831983203/40ebd89ede16b676f2286cecaa307531.jpeg", 
+    "screen_name": "DanLinden", 
+    "lang": "en", 
+    "profile_background_tile": false, 
+    "favourites_count": 312, 
+    "name": "Dan Linden", 
+    "notifications": false, 
+    "url": "https://t.co/7mnR2AtpOn", 
+    "created_at": "Thu Jun 18 14:23:52 +0000 2009", 
+    "contributors_enabled": false, 
+    "time_zone": "Eastern Time (US & Canada)", 
+    "protected": false, 
+    "default_profile": false, 
+    "is_translator": false
+   }, 
+   "geo": null, 
+   "in_reply_to_user_id_str": null, 
+   "possibly_sensitive": false, 
+   "lang": "en", 
+   "created_at": "Wed Apr 11 17:15:15 +0000 2018", 
+   "in_reply_to_status_id_str": null, 
+   "place": null
+  }, 
+  "entities": {
+   "symbols": [], 
+   "user_mentions": [], 
+   "hashtags": [], 
+   "urls": [
+    {
+     "url": "https://t.co/eJyIoG5tel", 
+     "indices": [
+      40, 
+      63
+     ], 
+     "expanded_url": "https://twitter.com/DanLinden/status/984117687289868290", 
+     "display_url": "twitter.com/DanLinden/stat…"
+    }
+   ]
+  }, 
+  "in_reply_to_screen_name": null, 
+  "in_reply_to_user_id": null, 
+  "retweet_count": 996, 
+  "id_str": "984128895547990016", 
+  "favorited": false, 
+  "user": {
+   "follow_request_sent": false, 
+   "has_extended_profile": false, 
+   "profile_use_background_image": true, 
+   "default_profile_image": false, 
+   "id": 2922928743, 
+   "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+   "verified": true, 
+   "translator_type": "none", 
+   "profile_text_color": "333333", 
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/573096048744218625/nCJ9BAx6_normal.jpeg", 
+   "profile_sidebar_fill_color": "DDEEF6", 
+   "entities": {
+    "description": {
+     "urls": []
+    }
+   }, 
+   "followers_count": 447337, 
+   "profile_sidebar_border_color": "C0DEED", 
+   "id_str": "2922928743", 
+   "profile_background_color": "C0DEED", 
+   "listed_count": 5096, 
+   "is_translation_enabled": false, 
+   "utc_offset": -25200, 
+   "statuses_count": 17145, 
+   "description": "Co-host of Pod Save America, Former Senior Advisor to President Obama, current @CNN contributor, frequent Tweeter, Process Truster", 
+   "friends_count": 3002, 
+   "location": "", 
+   "profile_link_color": "1DA1F2", 
+   "profile_image_url": "http://pbs.twimg.com/profile_images/573096048744218625/nCJ9BAx6_normal.jpeg", 
+   "following": false, 
+   "geo_enabled": true, 
+   "profile_banner_url": "https://pbs.twimg.com/profile_banners/2922928743/1518731903", 
+   "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+   "screen_name": "danpfeiffer", 
+   "lang": "en", 
+   "profile_background_tile": false, 
+   "favourites_count": 10253, 
+   "name": "Dan Pfeiffer", 
+   "notifications": false, 
+   "url": null, 
+   "created_at": "Mon Dec 15 14:38:28 +0000 2014", 
+   "contributors_enabled": false, 
+   "time_zone": "Pacific Time (US & Canada)", 
+   "protected": false, 
+   "default_profile": true, 
+   "is_translator": false
+  }, 
+  "geo": null, 
+  "in_reply_to_user_id_str": null, 
+  "possibly_sensitive": false, 
+  "lang": "en", 
+  "created_at": "Wed Apr 11 17:59:47 +0000 2018", 
+  "quoted_status_id_str": "984117687289868290", 
+  "in_reply_to_status_id_str": null, 
+  "place": null
+ }, 
+ {
+  "contributors": null, 
+  "truncated": false, 
+  "text": "It would be cool to see Zuckerberg questioned by people who know how Facebook works", 
+  "is_quote_status": false, 
+  "in_reply_to_status_id": null, 
+  "id": 983786847833800704, 
+  "favorite_count": 45687, 
+  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+  "retweeted": false, 
+  "coordinates": null, 
+  "entities": {
+   "symbols": [], 
+   "user_mentions": [], 
+   "hashtags": [], 
+   "urls": []
+  }, 
+  "in_reply_to_screen_name": null, 
+  "in_reply_to_user_id": null, 
+  "retweet_count": 8802, 
+  "id_str": "983786847833800704", 
+  "favorited": false, 
+  "user": {
+   "follow_request_sent": false, 
+   "has_extended_profile": false, 
+   "profile_use_background_image": true, 
+   "default_profile_image": false, 
+   "id": 2922928743, 
+   "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+   "verified": true, 
+   "translator_type": "none", 
+   "profile_text_color": "333333", 
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/573096048744218625/nCJ9BAx6_normal.jpeg", 
+   "profile_sidebar_fill_color": "DDEEF6", 
+   "entities": {
+    "description": {
+     "urls": []
+    }
+   }, 
+   "followers_count": 447337, 
+   "profile_sidebar_border_color": "C0DEED", 
+   "id_str": "2922928743", 
+   "profile_background_color": "C0DEED", 
+   "listed_count": 5096, 
+   "is_translation_enabled": false, 
+   "utc_offset": -25200, 
+   "statuses_count": 17145, 
+   "description": "Co-host of Pod Save America, Former Senior Advisor to President Obama, current @CNN contributor, frequent Tweeter, Process Truster", 
+   "friends_count": 3002, 
+   "location": "", 
+   "profile_link_color": "1DA1F2", 
+   "profile_image_url": "http://pbs.twimg.com/profile_images/573096048744218625/nCJ9BAx6_normal.jpeg", 
+   "following": false, 
+   "geo_enabled": true, 
+   "profile_banner_url": "https://pbs.twimg.com/profile_banners/2922928743/1518731903", 
+   "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+   "screen_name": "danpfeiffer", 
+   "lang": "en", 
+   "profile_background_tile": false, 
+   "favourites_count": 10253, 
+   "name": "Dan Pfeiffer", 
+   "notifications": false, 
+   "url": null, 
+   "created_at": "Mon Dec 15 14:38:28 +0000 2014", 
+   "contributors_enabled": false, 
+   "time_zone": "Pacific Time (US & Canada)", 
+   "protected": false, 
+   "default_profile": true, 
+   "is_translator": false
+  }, 
+  "geo": null, 
+  "in_reply_to_user_id_str": null, 
+  "lang": "en", 
+  "created_at": "Tue Apr 10 19:20:37 +0000 2018", 
+  "in_reply_to_status_id_str": null, 
+  "place": null
+ }, 
+ {
+  "contributors": null, 
+  "truncated": true, 
+  "text": "This is the heartbreaking reality for Puerto Rican families. It's been 191 days since Hurricane Maria struck the is… https://t.co/r5or8e0t0A", 
+  "is_quote_status": false, 
+  "in_reply_to_status_id": null, 
+  "id": 979764984120045568, 
+  "favorite_count": 573, 
+  "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>", 
+  "retweeted": false, 
+  "coordinates": null, 
+  "entities": {
+   "symbols": [], 
+   "user_mentions": [], 
+   "hashtags": [], 
+   "urls": [
+    {
+     "url": "https://t.co/r5or8e0t0A", 
+     "indices": [
+      117, 
+      140
+     ], 
+     "expanded_url": "https://twitter.com/i/web/status/979764984120045568", 
+     "display_url": "twitter.com/i/web/status/9…"
+    }
+   ]
+  }, 
+  "in_reply_to_screen_name": null, 
+  "in_reply_to_user_id": null, 
+  "retweet_count": 331, 
+  "id_str": "979764984120045568", 
+  "favorited": false, 
+  "user": {
+   "follow_request_sent": false, 
+   "has_extended_profile": false, 
+   "profile_use_background_image": true, 
+   "default_profile_image": false, 
+   "id": 4797361833, 
+   "profile_background_image_url_https": null, 
+   "verified": true, 
+   "translator_type": "none", 
+   "profile_text_color": "333333", 
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/840216584174075906/Puet5lzE_normal.jpg", 
+   "profile_sidebar_fill_color": "DDEEF6", 
+   "entities": {
+    "url": {
+     "urls": [
+      {
+       "url": "https://t.co/CpNJYb5UrL", 
+       "indices": [
+        0, 
+        23
+       ], 
+       "expanded_url": "http://IWillVote.com", 
+       "display_url": "IWillVote.com"
+      }
+     ]
+    }, 
+    "description": {
+     "urls": []
+    }
+   }, 
+   "followers_count": 223090, 
+   "profile_sidebar_border_color": "C0DEED", 
+   "id_str": "4797361833", 
+   "profile_background_color": "F5F8FA", 
+   "listed_count": 1720, 
+   "is_translation_enabled": false, 
+   "utc_offset": -14400, 
+   "statuses_count": 2026, 
+   "description": "Likes: The @BuffaloBills, @TheDemocrats, and fighting for the little guy, though not in that order. Father of 3.", 
+   "friends_count": 547, 
+   "location": "", 
+   "profile_link_color": "1DA1F2", 
+   "profile_image_url": "http://pbs.twimg.com/profile_images/840216584174075906/Puet5lzE_normal.jpg", 
+   "following": false, 
+   "geo_enabled": false, 
+   "profile_banner_url": "https://pbs.twimg.com/profile_banners/4797361833/1523044999", 
+   "profile_background_image_url": null, 
+   "screen_name": "TomPerez", 
+   "lang": "en", 
+   "profile_background_tile": false, 
+   "favourites_count": 646, 
+   "name": "Tom Perez", 
+   "notifications": false, 
+   "url": "https://t.co/CpNJYb5UrL", 
+   "created_at": "Wed Jan 13 20:27:43 +0000 2016", 
+   "contributors_enabled": false, 
+   "time_zone": "Eastern Time (US & Canada)", 
+   "protected": false, 
+   "default_profile": true, 
+   "is_translator": false
+  }, 
+  "geo": null, 
+  "in_reply_to_user_id_str": null, 
+  "possibly_sensitive": false, 
+  "lang": "en", 
+  "created_at": "Fri Mar 30 16:59:10 +0000 2018", 
+  "in_reply_to_status_id_str": null, 
+  "place": null
+ }, 
+ {
+  "contributors": null, 
+  "truncated": false, 
+  "text": "Happy #OpeningDay to my fellow baseball fans — especially everyone who's a part of @RedSox Nation. I have very good feelings about 2018. ⚾", 
+  "is_quote_status": false, 
+  "in_reply_to_status_id": null, 
+  "id": 979392395937710080, 
+  "favorite_count": 143, 
+  "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>", 
+  "retweeted": false, 
+  "coordinates": null, 
+  "entities": {
+   "symbols": [], 
+   "user_mentions": [
+    {
+     "id": 40918816, 
+     "indices": [
+      83, 
+      90
+     ], 
+     "id_str": "40918816", 
+     "screen_name": "RedSox", 
+     "name": "Red Sox"
+    }
+   ], 
+   "hashtags": [
+    {
+     "indices": [
+      6, 
+      17
+     ], 
+     "text": "OpeningDay"
+    }
+   ], 
+   "urls": []
+  }, 
+  "in_reply_to_screen_name": null, 
+  "in_reply_to_user_id": null, 
+  "retweet_count": 21, 
+  "id_str": "979392395937710080", 
+  "favorited": false, 
+  "user": {
+   "follow_request_sent": false, 
+   "has_extended_profile": false, 
+   "profile_use_background_image": true, 
+   "default_profile_image": false, 
+   "id": 4797361833, 
+   "profile_background_image_url_https": null, 
+   "verified": true, 
+   "translator_type": "none", 
+   "profile_text_color": "333333", 
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/840216584174075906/Puet5lzE_normal.jpg", 
+   "profile_sidebar_fill_color": "DDEEF6", 
+   "entities": {
+    "url": {
+     "urls": [
+      {
+       "url": "https://t.co/CpNJYb5UrL", 
+       "indices": [
+        0, 
+        23
+       ], 
+       "expanded_url": "http://IWillVote.com", 
+       "display_url": "IWillVote.com"
+      }
+     ]
+    }, 
+    "description": {
+     "urls": []
+    }
+   }, 
+   "followers_count": 223090, 
+   "profile_sidebar_border_color": "C0DEED", 
+   "id_str": "4797361833", 
+   "profile_background_color": "F5F8FA", 
+   "listed_count": 1720, 
+   "is_translation_enabled": false, 
+   "utc_offset": -14400, 
+   "statuses_count": 2026, 
+   "description": "Likes: The @BuffaloBills, @TheDemocrats, and fighting for the little guy, though not in that order. Father of 3.", 
+   "friends_count": 547, 
+   "location": "", 
+   "profile_link_color": "1DA1F2", 
+   "profile_image_url": "http://pbs.twimg.com/profile_images/840216584174075906/Puet5lzE_normal.jpg", 
+   "following": false, 
+   "geo_enabled": false, 
+   "profile_banner_url": "https://pbs.twimg.com/profile_banners/4797361833/1523044999", 
+   "profile_background_image_url": null, 
+   "screen_name": "TomPerez", 
+   "lang": "en", 
+   "profile_background_tile": false, 
+   "favourites_count": 646, 
+   "name": "Tom Perez", 
+   "notifications": false, 
+   "url": "https://t.co/CpNJYb5UrL", 
+   "created_at": "Wed Jan 13 20:27:43 +0000 2016", 
+   "contributors_enabled": false, 
+   "time_zone": "Eastern Time (US & Canada)", 
+   "protected": false, 
+   "default_profile": true, 
+   "is_translator": false
+  }, 
+  "geo": null, 
+  "in_reply_to_user_id_str": null, 
+  "lang": "en", 
+  "created_at": "Thu Mar 29 16:18:38 +0000 2018", 
+  "in_reply_to_status_id_str": null, 
+  "place": null
+ }, 
+ {
+  "contributors": null, 
+  "truncated": true, 
+  "text": "We are collecting kids coats and canned food during January. You can drop off items in Lincoln or Omaha. You can al… https://t.co/pNENWNYf5x", 
+  "is_quote_status": false, 
+  "in_reply_to_status_id": null, 
+  "id": 949358459472044033, 
+  "favorite_count": 134, 
+  "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+  "retweeted": false, 
+  "coordinates": null, 
+  "entities": {
+   "symbols": [], 
+   "user_mentions": [], 
+   "hashtags": [], 
+   "urls": [
+    {
+     "url": "https://t.co/pNENWNYf5x", 
+     "indices": [
+      117, 
+      140
+     ], 
+     "expanded_url": "https://twitter.com/i/web/status/949358459472044033", 
+     "display_url": "twitter.com/i/web/status/9…"
+    }
+   ]
+  }, 
+  "in_reply_to_screen_name": null, 
+  "in_reply_to_user_id": null, 
+  "retweet_count": 59, 
+  "id_str": "949358459472044033", 
+  "favorited": false, 
+  "user": {
+   "follow_request_sent": false, 
+   "has_extended_profile": false, 
+   "profile_use_background_image": true, 
+   "default_profile_image": false, 
+   "id": 41668297, 
+   "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/13979041/ndp_dsktp.jpg", 
+   "verified": true, 
+   "translator_type": "none", 
+   "profile_text_color": "333333", 
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/454014270292758528/cdQaDI-V_normal.png", 
+   "profile_sidebar_fill_color": "DDFFCC", 
+   "entities": {
+    "url": {
+     "urls": [
+      {
+       "url": "https://t.co/e78GmMhKuC", 
+       "indices": [
+        0, 
+        23
+       ], 
+       "expanded_url": "http://www.nebraskademocrats.org", 
+       "display_url": "nebraskademocrats.org"
+      }
+     ]
+    }, 
+    "description": {
+     "urls": []
+    }
+   }, 
+   "followers_count": 6102, 
+   "profile_sidebar_border_color": "BDDCAD", 
+   "id_str": "41668297", 
+   "profile_background_color": "9AE4E8", 
+   "listed_count": 215, 
+   "is_translation_enabled": false, 
+   "utc_offset": -18000, 
+   "statuses_count": 31346, 
+   "description": "Growing the Good Life for all Nebraskans, not just a few at the top. Build the party. Stand on issues. Elect Democrats at all levels. Our Chair is @JaneKleeb", 
+   "friends_count": 973, 
+   "location": "Lincoln, NE", 
+   "profile_link_color": "91D2FA", 
+   "profile_image_url": "http://pbs.twimg.com/profile_images/454014270292758528/cdQaDI-V_normal.png", 
+   "following": false, 
+   "geo_enabled": true, 
+   "profile_banner_url": "https://pbs.twimg.com/profile_banners/41668297/1523880303", 
+   "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/13979041/ndp_dsktp.jpg", 
+   "screen_name": "NebraskaDems", 
+   "lang": "en", 
+   "profile_background_tile": true, 
+   "favourites_count": 4156, 
+   "name": "Nebraska Democratic Party 💙 🌊", 
+   "notifications": false, 
+   "url": "https://t.co/e78GmMhKuC", 
+   "created_at": "Thu May 21 20:22:03 +0000 2009", 
+   "contributors_enabled": false, 
+   "time_zone": "Central Time (US & Canada)", 
+   "protected": false, 
+   "default_profile": false, 
+   "is_translator": false
+  }, 
+  "geo": null, 
+  "in_reply_to_user_id_str": null, 
+  "possibly_sensitive": false, 
+  "lang": "en", 
+  "created_at": "Fri Jan 05 19:14:29 +0000 2018", 
+  "in_reply_to_status_id_str": null, 
+  "place": null
+ }, 
+ {
+  "contributors": null, 
+  "truncated": false, 
+  "text": "@TheDemocrats @vademocrats Will be traveling for work next Tuesday. Voted yesterday at GN Rec Center!! #VOTE https://t.co/LCB5GSEMCq", 
+  "is_quote_status": false, 
+  "in_reply_to_status_id": 924657845542498304, 
+  "id": 924659291876884480, 
+  "favorite_count": 7, 
+  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+  "retweeted": false, 
+  "coordinates": null, 
+  "entities": {
+   "symbols": [], 
+   "user_mentions": [
+    {
+     "id": 14377605, 
+     "indices": [
+      0, 
+      13
+     ], 
+     "id_str": "14377605", 
+     "screen_name": "TheDemocrats", 
+     "name": "The Democrats"
+    }, 
+    {
+     "id": 29363230, 
+     "indices": [
+      14, 
+      26
+     ], 
+     "id_str": "29363230", 
+     "screen_name": "vademocrats", 
+     "name": "Virginia Democrats"
+    }
+   ], 
+   "hashtags": [
+    {
+     "indices": [
+      103, 
+      108
+     ], 
+     "text": "VOTE"
+    }
+   ], 
+   "urls": [], 
+   "media": [
+    {
+     "expanded_url": "https://twitter.com/PaigeMedrano1/status/924659291876884480/photo/1", 
+     "display_url": "pic.twitter.com/LCB5GSEMCq", 
+     "url": "https://t.co/LCB5GSEMCq", 
+     "media_url_https": "https://pbs.twimg.com/media/DNUMti9W0AAWYdU.jpg", 
+     "id_str": "924659275112304640", 
+     "sizes": {
+      "large": {
+       "h": 1024, 
+       "resize": "fit", 
+       "w": 768
+      }, 
+      "small": {
+       "h": 680, 
+       "resize": "fit", 
+       "w": 510
+      }, 
+      "medium": {
+       "h": 1024, 
+       "resize": "fit", 
+       "w": 768
+      }, 
+      "thumb": {
+       "h": 150, 
+       "resize": "crop", 
+       "w": 150
+      }
+     }, 
+     "indices": [
+      109, 
+      132
+     ], 
+     "type": "photo", 
+     "id": 924659275112304640, 
+     "media_url": "http://pbs.twimg.com/media/DNUMti9W0AAWYdU.jpg"
+    }
+   ]
+  }, 
+  "in_reply_to_screen_name": "TheDemocrats", 
+  "in_reply_to_user_id": 14377605, 
+  "retweet_count": 1, 
+  "id_str": "924659291876884480", 
+  "favorited": false, 
+  "user": {
+   "follow_request_sent": false, 
+   "has_extended_profile": true, 
+   "profile_use_background_image": true, 
+   "default_profile_image": false, 
+   "id": 722854759640776704, 
+   "profile_background_image_url_https": null, 
+   "verified": false, 
+   "translator_type": "none", 
+   "profile_text_color": "333333", 
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/980502909967364097/ubU-O0kl_normal.jpg", 
+   "profile_sidebar_fill_color": "DDEEF6", 
+   "entities": {
+    "description": {
+     "urls": []
+    }
+   }, 
+   "followers_count": 17, 
+   "profile_sidebar_border_color": "C0DEED", 
+   "id_str": "722854759640776704", 
+   "profile_background_color": "F5F8FA", 
+   "listed_count": 0, 
+   "is_translation_enabled": false, 
+   "utc_offset": null, 
+   "statuses_count": 364, 
+   "description": "The Capital Group Companies", 
+   "friends_count": 31, 
+   "location": "Virginia Beach, VA", 
+   "profile_link_color": "1DA1F2", 
+   "profile_image_url": "http://pbs.twimg.com/profile_images/980502909967364097/ubU-O0kl_normal.jpg", 
+   "following": false, 
+   "geo_enabled": false, 
+   "profile_banner_url": "https://pbs.twimg.com/profile_banners/722854759640776704/1521048380", 
+   "profile_background_image_url": null, 
+   "screen_name": "PaigeMedrano1", 
+   "lang": "en", 
+   "profile_background_tile": false, 
+   "favourites_count": 334, 
+   "name": "Paige Medrano", 
+   "notifications": false, 
+   "url": null, 
+   "created_at": "Wed Apr 20 18:29:39 +0000 2016", 
+   "contributors_enabled": false, 
+   "time_zone": null, 
+   "protected": false, 
+   "default_profile": true, 
+   "is_translator": false
+  }, 
+  "geo": null, 
+  "in_reply_to_user_id_str": "14377605", 
+  "possibly_sensitive": false, 
+  "lang": "en", 
+  "created_at": "Sun Oct 29 15:28:49 +0000 2017", 
+  "in_reply_to_status_id_str": "924657845542498304", 
+  "place": null, 
+  "extended_entities": {
+   "media": [
+    {
+     "expanded_url": "https://twitter.com/PaigeMedrano1/status/924659291876884480/photo/1", 
+     "display_url": "pic.twitter.com/LCB5GSEMCq", 
+     "url": "https://t.co/LCB5GSEMCq", 
+     "media_url_https": "https://pbs.twimg.com/media/DNUMti9W0AAWYdU.jpg", 
+     "id_str": "924659275112304640", 
+     "sizes": {
+      "large": {
+       "h": 1024, 
+       "resize": "fit", 
+       "w": 768
+      }, 
+      "small": {
+       "h": 680, 
+       "resize": "fit", 
+       "w": 510
+      }, 
+      "medium": {
+       "h": 1024, 
+       "resize": "fit", 
+       "w": 768
+      }, 
+      "thumb": {
+       "h": 150, 
+       "resize": "crop", 
+       "w": 150
+      }
+     }, 
+     "indices": [
+      109, 
+      132
+     ], 
+     "type": "photo", 
+     "id": 924659275112304640, 
+     "media_url": "http://pbs.twimg.com/media/DNUMti9W0AAWYdU.jpg"
+    }
+   ]
+  }
+ }, 
+ {
+  "contributors": null, 
+  "truncated": false, 
+  "text": "@TheDemocrats Thank you!!", 
+  "is_quote_status": false, 
+  "in_reply_to_status_id": 890236734356811776, 
+  "id": 890237549616214016, 
+  "favorite_count": 34, 
+  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+  "retweeted": false, 
+  "coordinates": null, 
+  "entities": {
+   "symbols": [], 
+   "user_mentions": [
+    {
+     "id": 14377605, 
+     "indices": [
+      0, 
+      13
+     ], 
+     "id_str": "14377605", 
+     "screen_name": "TheDemocrats", 
+     "name": "The Democrats"
+    }
+   ], 
+   "hashtags": [], 
+   "urls": []
+  }, 
+  "in_reply_to_screen_name": "TheDemocrats", 
+  "in_reply_to_user_id": 14377605, 
+  "retweet_count": 5, 
+  "id_str": "890237549616214016", 
+  "favorited": false, 
+  "user": {
+   "follow_request_sent": false, 
+   "has_extended_profile": false, 
+   "profile_use_background_image": false, 
+   "default_profile_image": false, 
+   "id": 852723636368748544, 
+   "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+   "verified": false, 
+   "translator_type": "none", 
+   "profile_text_color": "000000", 
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/855476586421919745/Tk-eRn77_normal.jpg", 
+   "profile_sidebar_fill_color": "000000", 
+   "entities": {
+    "description": {
+     "urls": []
+    }
+   }, 
+   "followers_count": 1539, 
+   "profile_sidebar_border_color": "000000", 
+   "id_str": "852723636368748544", 
+   "profile_background_color": "000000", 
+   "listed_count": 22, 
+   "is_translation_enabled": false, 
+   "utc_offset": -14400, 
+   "statuses_count": 1539, 
+   "description": "Proudly serving the #4thMiddlesex district in the @MA_Senate. Senate Chair of Joint Committee on Mental Health, Substance Use & Recovery. #mapoli", 
+   "friends_count": 1105, 
+   "location": "Arlington, MA", 
+   "profile_link_color": "0D2148", 
+   "profile_image_url": "http://pbs.twimg.com/profile_images/855476586421919745/Tk-eRn77_normal.jpg", 
+   "following": false, 
+   "geo_enabled": true, 
+   "profile_banner_url": "https://pbs.twimg.com/profile_banners/852723636368748544/1501096024", 
+   "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+   "screen_name": "CindyFriedmanMA", 
+   "lang": "en", 
+   "profile_background_tile": false, 
+   "favourites_count": 1825, 
+   "name": "Cindy Friedman", 
+   "notifications": false, 
+   "url": null, 
+   "created_at": "Fri Apr 14 03:22:12 +0000 2017", 
+   "contributors_enabled": false, 
+   "time_zone": "Eastern Time (US & Canada)", 
+   "protected": false, 
+   "default_profile": false, 
+   "is_translator": false
+  }, 
+  "geo": null, 
+  "in_reply_to_user_id_str": "14377605", 
+  "lang": "en", 
+  "created_at": "Wed Jul 26 15:49:06 +0000 2017", 
+  "in_reply_to_status_id_str": "890236734356811776", 
+  "place": null
+ }, 
+ {
+  "contributors": null, 
+  "truncated": false, 
+  "text": "Look at my badass team for #demsresist  @JessOConne11 @keithellison @TomPerez. They are ready to organize to win! https://t.co/gtab0nx9HL", 
+  "is_quote_status": false, 
+  "in_reply_to_status_id": null, 
+  "id": 879498091153547265, 
+  "favorite_count": 183, 
+  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+  "retweeted": false, 
+  "coordinates": null, 
+  "entities": {
+   "symbols": [], 
+   "user_mentions": [
+    {
+     "id": 14135426, 
+     "indices": [
+      54, 
+      67
+     ], 
+     "id_str": "14135426", 
+     "screen_name": "keithellison", 
+     "name": "Rep. Keith Ellison"
+    }, 
+    {
+     "id": 4797361833, 
+     "indices": [
+      68, 
+      77
+     ], 
+     "id_str": "4797361833", 
+     "screen_name": "TomPerez", 
+     "name": "Tom Perez"
+    }
+   ], 
+   "hashtags": [
+    {
+     "indices": [
+      27, 
+      38
+     ], 
+     "text": "demsresist"
+    }
+   ], 
+   "urls": [], 
+   "media": [
+    {
+     "expanded_url": "https://twitter.com/mcbyrne/status/879498091153547265/photo/1", 
+     "display_url": "pic.twitter.com/gtab0nx9HL", 
+     "url": "https://t.co/gtab0nx9HL", 
+     "media_url_https": "https://pbs.twimg.com/media/DDSax-fWsAAJxGh.jpg", 
+     "id_str": "879498010622865408", 
+     "sizes": {
+      "large": {
+       "h": 960, 
+       "resize": "fit", 
+       "w": 1280
+      }, 
+      "small": {
+       "h": 510, 
+       "resize": "fit", 
+       "w": 680
+      }, 
+      "medium": {
+       "h": 900, 
+       "resize": "fit", 
+       "w": 1200
+      }, 
+      "thumb": {
+       "h": 150, 
+       "resize": "crop", 
+       "w": 150
+      }
+     }, 
+     "indices": [
+      114, 
+      137
+     ], 
+     "type": "photo", 
+     "id": 879498010622865408, 
+     "media_url": "http://pbs.twimg.com/media/DDSax-fWsAAJxGh.jpg"
+    }
+   ]
+  }, 
+  "in_reply_to_screen_name": null, 
+  "in_reply_to_user_id": null, 
+  "retweet_count": 32, 
+  "id_str": "879498091153547265", 
+  "favorited": false, 
+  "user": {
+   "follow_request_sent": false, 
+   "has_extended_profile": true, 
+   "profile_use_background_image": true, 
+   "default_profile_image": false, 
+   "id": 14372270, 
+   "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme4/bg.gif", 
+   "verified": true, 
+   "translator_type": "none", 
+   "profile_text_color": "3C3940", 
+   "profile_image_url_https": "https://pbs.twimg.com/profile_images/640377859819859968/nZVTJnT3_normal.jpg", 
+   "profile_sidebar_fill_color": "95E8EC", 
+   "entities": {
+    "url": {
+     "urls": [
+      {
+       "url": "https://t.co/uhW6x1WsHs", 
+       "indices": [
+        0, 
+        23
+       ], 
+       "expanded_url": "http://melissafordnc.com", 
+       "display_url": "melissafordnc.com"
+      }
+     ]
+    }, 
+    "description": {
+     "urls": []
+    }
+   }, 
+   "followers_count": 12319, 
+   "profile_sidebar_border_color": "5ED4DC", 
+   "id_str": "14372270", 
+   "profile_background_color": "0099B9", 
+   "listed_count": 247, 
+   "is_translation_enabled": false, 
+   "utc_offset": -14400, 
+   "statuses_count": 79713, 
+   "description": "\"complete jackass\"- kellyanne conway. banned from trump tower. organizer. alum @berniesanders national gotv digital director/nh digital director. alum @moveon.", 
+   "friends_count": 6720, 
+   "location": "philly. (and dc, nyc, ...)", 
+   "profile_link_color": "0099B9", 
+   "profile_image_url": "http://pbs.twimg.com/profile_images/640377859819859968/nZVTJnT3_normal.jpg", 
+   "following": false, 
+   "geo_enabled": false, 
+   "profile_banner_url": "https://pbs.twimg.com/profile_banners/14372270/1470930906", 
+   "profile_background_image_url": "http://abs.twimg.com/images/themes/theme4/bg.gif", 
+   "screen_name": "mcbyrne", 
+   "lang": "en", 
+   "profile_background_tile": false, 
+   "favourites_count": 13120, 
+   "name": "melissa byrne", 
+   "notifications": false, 
+   "url": "https://t.co/uhW6x1WsHs", 
+   "created_at": "Sun Apr 13 02:00:29 +0000 2008", 
+   "contributors_enabled": false, 
+   "time_zone": "Eastern Time (US & Canada)", 
+   "protected": false, 
+   "default_profile": false, 
+   "is_translator": false
+  }, 
+  "geo": null, 
+  "in_reply_to_user_id_str": null, 
+  "possibly_sensitive": false, 
+  "lang": "en", 
+  "created_at": "Tue Jun 27 00:34:19 +0000 2017", 
+  "in_reply_to_status_id_str": null, 
+  "place": null, 
+  "extended_entities": {
+   "media": [
+    {
+     "expanded_url": "https://twitter.com/mcbyrne/status/879498091153547265/photo/1", 
+     "display_url": "pic.twitter.com/gtab0nx9HL", 
+     "url": "https://t.co/gtab0nx9HL", 
+     "media_url_https": "https://pbs.twimg.com/media/DDSax-fWsAAJxGh.jpg", 
+     "id_str": "879498010622865408", 
+     "sizes": {
+      "large": {
+       "h": 960, 
+       "resize": "fit", 
+       "w": 1280
+      }, 
+      "small": {
+       "h": 510, 
+       "resize": "fit", 
+       "w": 680
+      }, 
+      "medium": {
+       "h": 900, 
+       "resize": "fit", 
+       "w": 1200
+      }, 
+      "thumb": {
+       "h": 150, 
+       "resize": "crop", 
+       "w": 150
+      }
+     }, 
+     "indices": [
+      114, 
+      137
+     ], 
+     "type": "photo", 
+     "id": 879498010622865408, 
+     "media_url": "http://pbs.twimg.com/media/DDSax-fWsAAJxGh.jpg"
+    }
+   ]
+  }
+ }
+]
