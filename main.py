@@ -4,6 +4,7 @@ from functools import partial
 from httplib import BadStatusLine
 from sys import maxint
 from urllib2 import URLError
+from nltk import *
 
 import twitter
 import io, json
@@ -189,6 +190,21 @@ def get_democrat_training_data(twitter_api, filename):
     save_json(filename+"_tweets_timeline", dnc_tweets)
     save_json(filename+"_likes_timeline", dnc_likes)
 
+# ------- CLASSIFER STUFF
+all_topics = []
+
+def dnc_gop_features():
+    for feature in all_topics:
+        for tw in all_gop_tweets:
+            if feature in tw:
+
+
+
+def dnc_gop_training_set(gop_tweets, dnc_tweets):
+    gop_dnc_set = []
+    for (words, party) in gop_tweets + dnc_tweets:
+        words_filtered = [e.lower() for e in words.split() if len(e) >= 3]
+        gop_dnc_set.append((words_filtered, sentiment))
 
 def main():
     twitter_api = oauth_login()
