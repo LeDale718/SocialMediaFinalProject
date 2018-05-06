@@ -191,25 +191,25 @@ def get_democrat_training_data(twitter_api, filename):
     save_json(filename+"_likes_timeline", dnc_likes)
 
 # ------- CLASSIFER STUFF
-all_topics = []
-
-def dnc_gop_features():
-    for feature in all_topics:
-        for tw in all_gop_tweets:
-            if feature in tw:
-
-
-
-def dnc_gop_training_set(gop_tweets, dnc_tweets):
-    gop_dnc_set = []
-    for (words, party) in gop_tweets + dnc_tweets:
-        words_filtered = [e.lower() for e in words.split() if len(e) >= 3]
-        gop_dnc_set.append((words_filtered, sentiment))
+# all_topics = []
+#
+# def dnc_gop_features():
+#     for feature in all_topics:
+#         for tw in all_gop_tweets:
+#             if feature in tw:
+#
+#
+#
+# def dnc_gop_training_set(gop_tweets, dnc_tweets):
+#     gop_dnc_set = []
+#     for (words, party) in gop_tweets + dnc_tweets:
+#         words_filtered = [e.lower() for e in words.split() if len(e) >= 3]
+#         gop_dnc_set.append((words_filtered, sentiment))
 
 def main():
     twitter_api = oauth_login()
-    # tweets = harvest_user_timeline(twitter_api, screen_name="foxxymimi", max_results=200)
-    # save_json("retweets_timeline", tweets)
+    tweets = harvest_user_timeline(twitter_api, screen_name="NancyPelosi", max_results=3300)
+    save_json("NancyPelosi_tweets_timeline", tweets)
 
     # likes = harvest_user_likes(twitter_api, screen_name="reallychizzy")
     # print(likes)

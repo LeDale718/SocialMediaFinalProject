@@ -22,13 +22,6 @@ def save_json(filename, data):
                  'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(data, indent = 1, ensure_ascii=False)))
 
-
-# def dnc_gop_training_set(gop_tweets, dnc_tweets):
-#     gop_dnc_set = []
-#     for (words, party) in gop_tweets + dnc_tweets:
-#         words_filtered = [e.lower() for e in words.split() if len(e) >= 3]
-#         gop_dnc_tweets.append((words_filtered, sentiment))
-
 def jsonToData(filename1, filename2, party):
     tweet_party_dict = []
     something = load_json(filename1)
@@ -120,11 +113,11 @@ def main():
     # save_json("training_set", training_set)
 
     classifier = nltk.NaiveBayesClassifier.train(training_set)
-    test_set = oneJSONToData("likes.json")
+    test_set = oneJSONToData("NancyPelosi_tweets_timeline.json")
     print(test_set)
 
     for t in test_set:
-        print "{0} : {1}".format(t, classifier.classify(extract_test_features(t.split(), test_set)))
+        print "{0} : {1}".format(t, classifier.classify(extract_test_features(t.split(), all_tweets_sentiments)))
 
     # print(len(dnc_tweets_sentiments))
     # print(dnc_tweets_sentiments)
