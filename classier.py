@@ -8,9 +8,19 @@ import nltk
 from nltk import *
 from nltk.probability import FreqDist
 import unicodedata
+import random
 
 import twitter
 import io, json
+
+def splitDataset(dataset, splitRatio):
+	trainSize = int(len(dataset) * splitRatio)
+	trainSet = []
+	copy = list(dataset)
+	while len(trainSet) < trainSize:
+		index = random.randrange(len(copy))
+		trainSet.append(copy.pop(index))
+	return [trainSet, copy]
 
 def load_json(filename):
     with io.open(filename,
@@ -24,15 +34,15 @@ def save_json(filename, data):
 
 def jsonToData(filename1, filename2, party):
     tweet_party_dict = []
-    something = load_json(filename1)
+    tweets_json = load_json(filename1)
     # print(len(something))
     likes_json = load_json(filename2)
     # print(len(likes_json))
-    for i in something:
-        tup = (i["text"].encode('utf-8'), party)
+    for i in tweets_json:
+        tup = (i, party)
         tweet_party_dict.append(tup)
     for a in likes_json:
-        tup = (a["text"].encode('utf-8'), party)
+        tup = (a, party)
         tweet_party_dict.append(tup)
     return tweet_party_dict
 
@@ -105,19 +115,48 @@ def extract_test_features(document, tweets):
     return features
 
 def main():
-    dnc_tweets_sentiments = jsonToData("dnc_tweets_timeline.json", "dnc_likes_timeline.json","democrat")
-    gop_tweets_sentiments = jsonToData("gop_tweets_timeline.json", "gop_likes_timeline.json","republican")
-    all_tweets_sentiments = words_filter_and_sentiment(dnc_tweets_sentiments, gop_tweets_sentiments)
-    # print("got here")
-    training_set = [(extract_features(d, all_tweets_sentiments), c) for (d,c) in all_tweets_sentiments]
-    # save_json("training_set", training_set)
 
-    classifier = nltk.NaiveBayesClassifier.train(training_set)
-    test_set = oneJSONToData("NancyPelosi_tweets_timeline.json")
-    print(test_set)
+        splitRatio = 0.67
+        dnc_tweets_clean = load_json("dnc_tweets_clean.json")
+        dnc_tweets_clean_train, dnc_tweets_clean_test = splitDataset(dnc_tweets_clean, splitRatio)
+        save_json("dnc_tweets_clean_train", dnc_tweets_clean_train)
 
-    for t in test_set:
-        print "{0} : {1}".format(t, classifier.classify(extract_test_features(t.split(), all_tweets_sentiments)))
+        dnc_likes_clean = load_json("dnc_likes_clean.json")
+        dnc_likes_clean_train, dnc_likes_clean_test = splitDataset(dnc_likes_clean, splitRatio)
+        save_json("dnc_likes_clean_train", dnc_likes_clean_train)
+
+        gop_tweets_clean = load_json("dnc_tweets_clean.json")
+        gop_tweets_clean_train, gop_tweets_clean_test = splitDataset(gop_tweets_clean, splitRatio)
+        save_json("gop_tweets_clean_train", gop_tweets_clean_train)
+
+        gop_likes_clean = load_json("gop_likes_clean.json")
+        gop_likes_clean_train, gop_likes_clean_test = splitDataset(gop_likes_clean, splitRatio)
+        save_json("gop_likes_clean_train", gop_likes_clean_train)
+
+        dnc_tweets_sentiments = jsonToData("dnc_tweets_clean_train.json", "dnc_likes_clean_train.json","democrat")
+        gop_tweets_sentiments = jsonToData("gop_tweets_clean_train.json", "gop_likes_clean_train.json","republican")
+        # print dnc_tweets_sentiments
+        # gop_tweets  = [(tweet, sentiment) for (tweet, sentiment) in gop_tweets_sentiments[:500]]
+        all_tweets_sentiments = words_filter_and_sentiment(dnc_tweets_sentiments, gop_tweets_sentiments)
+
+        training_set =  [(extract_features(d, all_tweets_sentiments), c) for (d,c) in all_tweets_sentiments]
+        # test_set =  [(extract_features(d, tester), c) for (d,c) in tester]
+        save_json("my_training_set", training_set)
+
+        classifier = nltk.NaiveBayesClassifier.train(training_set)
+    # dnc_tweets_sentiments = jsonToData("dnc_tweets_timeline.json", "dnc_likes_timeline.json","democrat")
+    # gop_tweets_sentiments = jsonToData("gop_tweets_timeline.json", "gop_likes_timeline.json","republican")
+    # all_tweets_sentiments = words_filter_and_sentiment(dnc_tweets_sentiments, gop_tweets_sentiments)
+    # # print("got here")
+    # training_set = [(extract_features(d, all_tweets_sentiments), c) for (d,c) in all_tweets_sentiments]
+    # # save_json("training_set", training_set)
+    #
+    # classifier = nltk.NaiveBayesClassifier.train(training_set)
+    # test_set = oneJSONToData("NancyPelosi_tweets_timeline.json")
+    # print(test_set)
+    #
+    # for t in test_set:
+    #     print "{0} : {1}".format(t, classifier.classify(extract_test_features(t.split(), all_tweets_sentiments)))
 
     # print(len(dnc_tweets_sentiments))
     # print(dnc_tweets_sentiments)

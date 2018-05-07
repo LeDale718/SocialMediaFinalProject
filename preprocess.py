@@ -20,7 +20,6 @@ import twitter
 import io, json
 import pickle
 import random
-from textblob import TextBlob
 import re
 
 def load_json(filename):
@@ -137,24 +136,41 @@ def main():
     # gop_likes = load_json('gop_like_features.json')
     # gop_likes = process(gop_likes)
     # save_json("gop_likes_clean", gop_likes)
+    splitRatio = 0.67
+    dnc_tweets_clean = load_json("dnc_tweets_clean.json")
+    dnc_tweets_clean_train, dnc_tweets_clean_test = splitDataset(dnc_tweets_clean, splitRatio)
+    save_json("dnc_tweets_clean_train", dnc_tweets_clean_train)
 
-    dnc_tweets_sentiments = jsonToData("dnc_tweets_clean.json", "dnc_likes_clean.json","democrat")
-    gop_tweets_sentiments = jsonToData("gop_tweets_clean.json", "gop_likes_clean.json","republican")
+    dnc_likes_clean = load_json("dnc_likes_clean.json")
+    dnc_likes_clean_train, dnc_likes_clean_test = splitDataset(dnc_likes_clean, splitRatio)
+    save_json("dnc_likes_clean_train", dnc_likes_clean_train)
+
+    gop_tweets_clean = load_json("dnc_tweets_clean.json")
+    gop_tweets_clean_train, gop_tweets_clean_test = splitDataset(gop_tweets_clean, splitRatio)
+    save_json("gop_tweets_clean_train", gop_tweets_clean_train)
+
+    gop_likes_clean = load_json("gop_likes_clean.json")
+    gop_likes_clean_train, gop_likes_clean_test = splitDataset(gop_likes_clean, splitRatio)
+    save_json("gop_likes_clean_train", gop_likes_clean_train)
+
+    dnc_tweets_sentiments = jsonToData("dnc_tweets_clean_train.json", "dnc_likes_clean_train.json","democrat")
+    gop_tweets_sentiments = jsonToData("gop_tweets_clean_train.json", "gop_likes_clean_train.json","republican")
     # print dnc_tweets_sentiments
     # gop_tweets  = [(tweet, sentiment) for (tweet, sentiment) in gop_tweets_sentiments[:500]]
     all_tweets_sentiments = words_filter_and_sentiment(dnc_tweets_sentiments, gop_tweets_sentiments)
 
-    splitRatio = 0.67
-    trainer, tester = splitDataset(all_tweets_sentiments, splitRatio)
-    training_set =  [(extract_features(d, trainer), c) for (d,c) in trainer]
+    training_set =  [(extract_features(d, all_tweets_sentiments), c) for (d,c) in all_tweets_sentiments]
     # test_set =  [(extract_features(d, tester), c) for (d,c) in tester]
     save_json("my_training_set", training_set)
-    save_json("my_test_set", tester)
 
     classifier = nltk.NaiveBayesClassifier.train(training_set)
 
     for t in tester:
         print "{0} : {1}".format(t, classifier.classify(extract_test_features(t.split(), tester)))
+
+
+if __name__ == "__main__":
+    main()
 
 
     # # print("got here")

@@ -4,15 +4,109 @@ from functools import partial
 from httplib import BadStatusLine
 from sys import maxint
 from urllib2 import URLError
+import nltk
 from nltk import *
+from nltk.probability import FreqDist
+from collections import Counter
 
 import twitter
 import io, json
+import networkx as nx
+import matplotlib.pyplot as plt
+
+def load_json(filename):
+    with io.open(filename,
+                 encoding='utf-8') as f:
+        return json.load(f)
 
 def save_json(filename, data):
     with io.open('{0}.json'.format(filename),
                  'w', encoding='utf-8') as f:
         f.write(unicode(json.dumps(data, indent = 1, ensure_ascii=False)))
+
+# twitter cookbook
+# Example 19. Getting all friends or followers for a user
+
+
+def get_friends_followers_ids(twitter_api, screen_name=None, user_id=None,
+                              friends_limit=maxint, followers_limit=maxint):
+    # Must have either screen_name or user_id (logical xor)
+    assert (screen_name != None) != (user_id != None), "Must have screen_name or user_id, but not both"
+
+    # See https://dev.twitter.com/docs/api/1.1/get/friends/ids and
+    # https://dev.twitter.com/docs/api/1.1/get/followers/ids for details
+    # on API parameters
+
+    get_friends_ids = partial(make_twitter_request, twitter_api.friends.ids,
+                              count=5000)
+    get_followers_ids = partial(make_twitter_request, twitter_api.followers.ids,
+                                count=5000)
+
+    friends_ids, followers_ids = [], []
+
+    for twitter_api_func, limit, ids, label in [
+        [get_friends_ids, friends_limit, friends_ids, "friends"],
+        [get_followers_ids, followers_limit, followers_ids, "followers"]
+    ]:
+
+        if limit == 0: continue
+
+        cursor = -1
+        while cursor != 0:
+
+            # Use make_twitter_request via the partially bound callable...
+            if screen_name:
+                response = twitter_api_func(screen_name=screen_name, cursor=cursor)
+            else:  # user_id
+                response = twitter_api_func(user_id=user_id, cursor=cursor)
+
+            if response is not None:
+                ids += response['ids']
+                cursor = response['next_cursor']
+
+            # print >> sys.stderr, 'Fetched {0} total {1} ids for {2}'.format(len(ids),
+            #                                                                 label, (user_id or screen_name))
+
+            # XXX: You may want to store data during each iteration to provide an
+            # an additional layer of protection from exceptional circumstances
+
+            if len(ids) >= limit or response is None:
+                break
+
+    # Do something useful with the IDs, like store them to disk...
+    return friends_ids[:friends_limit], followers_ids[:followers_limit]
+
+
+def get_user_profile(twitter_api, screen_names=None, user_ids=None):
+    # Must have either screen_name or user_id (logical xor)
+    assert (screen_names != None) != (user_ids != None), "Must have screen_names or user_ids, but not both"
+
+    items_to_info = {}
+
+    items = screen_names or user_ids
+
+    while len(items) > 0:
+
+        # Process 100 items at a time per the API specifications for /users/lookup.
+        # See https://dev.twitter.com/docs/api/1.1/get/users/lookup for details.
+
+        items_str = ','.join([str(item) for item in items[:100]])
+        items = items[100:]
+
+        if screen_names:
+            response = make_twitter_request(twitter_api.users.lookup,
+                                            screen_name=items_str)
+        else:  # user_ids
+            response = make_twitter_request(twitter_api.users.lookup,
+                                            user_id=items_str)
+
+        for user_info in response:
+            if screen_names:
+                items_to_info[user_info['screen_name']] = user_info
+            else:  # user_ids
+                items_to_info[user_info['id']] = user_info
+
+    return items_to_info
 
 def make_twitter_request(twitter_api_func, max_errors=10, *args, **kw):
     # A nested helper function that handles common HTTPErrors. Return an updated
@@ -135,7 +229,7 @@ def harvest_user_timeline(twitter_api, screen_name=None, user_id=None, max_resul
         tweets = make_twitter_request(twitter_api.statuses.user_timeline, **kw)
         results += tweets
 
-        print >> sys.stderr, 'Fetched %i tweets' % (len(tweets),)
+        # print >> sys.stderr, 'Fetched %i tweets' % (len(tweets),)
         page_num += 1
 
     print >> sys.stderr, 'Done fetching tweets'
@@ -143,12 +237,13 @@ def harvest_user_timeline(twitter_api, screen_name=None, user_id=None, max_resul
 
 
 def harvest_user_likes(twitter_api, screen_name=None, user_id=None, max_results=1000):
+    tweet_list=twitter_api.favorites.list(screen_name=screen_name, count=500, since_id=1)
 
     max_pages = 16
     results = []
 
 	#Fetch the last 500 favorites of the specified username
-    tweet_list=twitter_api.favorites.list(screen_name=screen_name, count=500, since_id=1)
+    # tweet_list=twitter_api.favorites.list(u_id, count=500, since_id=1)
     results += tweet_list
     page_num = 1
 
@@ -157,69 +252,193 @@ def harvest_user_likes(twitter_api, screen_name=None, user_id=None, max_results=
 
     while page_num < max_pages and len(tweet_list) > 0 and len(results) < max_results:
         sid = min([ tweet['id'] for tweet in tweet_list]) - 1
-        tweet_list=twitter_api.favorites.list(screen_name=screen_name, count=500, max_id=sid)
+        # if screen_name:
+        #     tweet_list=twitter_api.favorites.list(screen_name=screen_name, count=500, max_id=sid)
+        # else:
+        tweet_list=twitter_api.favorites.list(user_id=user_id, count=500, max_id=sid)
+
         results += tweet_list
         page_num += 1
-	# #loop through the list of tweetss
-	# for tweet in results:
-	# 	try:
-    #
-	# 		#get the expanded_url
-	# 		#url=tweet['entities']['urls'][0]['expanded_url']
-	# 		#this is the text of the tweet
-	# 		tweet_text=tweet['text']
-	# 		print str(tweet_text)
-    #
-	# 	except Exception, e:
-	# 		print 'no url in tweet'
-	# 		#print e
+
     print >> sys.stderr, 'Length of likes %i ' % (len(results),)
     return results
 	#print json.dumps(urls, indent=1)
 
-def get_republican_training_data(twitter_api, filename):
-    gop_tweets = harvest_user_timeline(twitter_api, screen_name="GOP", max_results=30000)
-    gop_likes = harvest_user_likes(twitter_api, screen_name="GOP")
-    save_json(filename+"_tweets_timeline", gop_tweets)
-    save_json(filename+"_likes_timeline", gop_likes)
+# ---------USE TO PULL INFORMATION FROM OFFICIAL PARTY TWITTER ACCOUNTS
+# ---------TO BE USED IN TRAINING SET. IS NEVER RUN AGAIN
 
-
-def get_democrat_training_data(twitter_api, filename):
-    dnc_tweets = harvest_user_timeline(twitter_api, screen_name="TheDemocrats", max_results=30000)
-    dnc_likes = harvest_user_likes(twitter_api, screen_name="TheDemocrats")
-    save_json(filename+"_tweets_timeline", dnc_tweets)
-    save_json(filename+"_likes_timeline", dnc_likes)
+# def get_republican_training_data(twitter_api, filename):
+#     gop_tweets = harvest_user_timeline(twitter_api, screen_name="GOP", max_results=30000)
+#     gop_likes = harvest_user_likes(twitter_api, screen_name="GOP")
+#     save_json(filename+"_tweets_timeline", gop_tweets)
+#     save_json(filename+"_likes_timeline", gop_likes)
+#
+#
+# def get_democrat_training_data(twitter_api, filename):
+#     dnc_tweets = harvest_user_timeline(twitter_api, screen_name="TheDemocrats", max_results=30000)
+#     dnc_likes = harvest_user_likes(twitter_api, screen_name="TheDemocrats")
+#     save_json(filename+"_tweets_timeline", dnc_tweets)
+#     save_json(filename+"_likes_timeline", dnc_likes)
 
 # ------- CLASSIFER STUFF
-# all_topics = []
-#
-# def dnc_gop_features():
-#     for feature in all_topics:
-#         for tw in all_gop_tweets:
-#             if feature in tw:
-#
-#
-#
-# def dnc_gop_training_set(gop_tweets, dnc_tweets):
-#     gop_dnc_set = []
-#     for (words, party) in gop_tweets + dnc_tweets:
-#         words_filtered = [e.lower() for e in words.split() if len(e) >= 3]
-#         gop_dnc_set.append((words_filtered, sentiment))
+
+def get_word_features(wordlist):
+    # print("in features")
+    wordlist = FreqDist(wordlist)
+    # word_features = wordlist.keys() # careful here
+    word_features = [w for (w, c) in wordlist.most_common(2000)] #use most_common() if you want to select the most frequent words
+    return word_features
+
+def get_words_in_tweets(tweets):
+    all_words = []
+    for (words, sentiment) in tweets:
+        all_words += words
+    return all_words
+
+def extract_features(document, tweets):
+    # print("extracting")
+    document_words = set(document)
+    features = {}
+    word_features = get_word_features(get_words_in_tweets(tweets))
+    for word in word_features:
+        features['contains(%s)' % word] = (word in document_words)
+    return features
+
+def words_filter_and_sentiment(tw_sent_1, tw_sent_2):
+    tweets = []
+    ("words filter")
+    for (words, sentiment) in tw_sent_1 + tw_sent_2:
+        words_filtered = [e.lower() for e in words.split() if len(e) >= 3]
+        tweets.append((words_filtered, sentiment))
+    return tweets
+
+# CREATES CLASSIFER WITH CLEANED AND PROCESSED DATA AND TRAINING SET.
+# THE CLASSIFER CAN BE PASSED TO MANY FUNCTIONS
+def create_classifier():
+    dnc_tweets_sentiments = jsonToData("dnc_tweets_clean_train.json", "dnc_likes_clean_train.json","democrat")
+    gop_tweets_sentiments = jsonToData("gop_tweets_clean_train.json", "gop_likes_clean_train.json","republican")
+    all_tweets_sentiments = words_filter_and_sentiment(dnc_tweets_sentiments, gop_tweets_sentiments)
+    training_set = load_json("my_training_set.json")
+    return [nltk.NaiveBayesClassifier.train(training_set), all_tweets_sentiments]
+
+# USES A LIST OF POLITICAL KEYWORDS TO FILTER OUT TWEETS THAT MAY NOT BE POLITICAL. RETURNS LIST OF TWEETS
+def get_political_tweets(tweets):
+    keywords_list = ["gun", "trump", "donald", "president", "abortion", "choice", "prolife", "congress", "gun control", "planned parenthood",
+                        "vote", "election", "tax", "russia", "left", "rightwing", "dreamers", "immigration", "democrat",
+                            "republican", "liberal", "security", "conservative", "daca", "obama", "clinton", "economy"]
+    poli_tweets = []
+    for twt in tweets:
+        for wd in keywords_list:
+            if wd in twt:
+                poli_tweets.append(twt)
+                break
+    return poli_tweets
+
+# ------ HELPER Functions
+
+# RETURNS LIST OF ONLY THE TWEET TEXT
+def getTweetText(fullTweet):
+    tweet_dict = []
+    for i in fullTweet:
+        t_text = i["text"].encode('utf-8')
+        tweet_dict.append(t_text)
+    return tweet_dict
+
+# TAKES IN 2 JSON FILES, LOADS THEM, AND RETURNS A LIST OF TUPLES WITH
+# TWEETS TEXT THAT HAVE BEEN MARKED WITH THE PARTY THAT TWEETED IT
+# [(TEXT, "DEMOCRAT"), (TEXT, "REPUBLICAN")
+def jsonToData(filename1, filename2, party):
+    tweet_party_dict = []
+    tweets_json = load_json(filename1)
+    # print(len(something))
+    likes_json = load_json(filename2)
+    # print(len(likes_json))
+    for i in tweets_json:
+        tup = (i, party)
+        tweet_party_dict.append(tup)
+    for a in likes_json:
+        tup = (a, party)
+        tweet_party_dict.append(tup)
+    return tweet_party_dict
+
+# TAKES IN API, CLASSIFER, ALL TWEET THAT HAVE BEEN MARKED, AND SCREEN NAME
+# TO RETURN A POLITICAL PARTY AND THE LIKELIHOOD THAT THEY ARE IN THAT
+# PARTY
+def party_of_user(twitter_api, my_classifier, all_tweets_sentiments, screen_name=None):
+
+    tweets = harvest_user_timeline(twitter_api, screen_name, max_results=3300)
+    likes = harvest_user_likes(twitter_api, screen_name)
+    poli_tweets = get_political_tweets(getTweetText(tweets)) + get_political_tweets(getTweetText(likes))
+    print(screen_name)
+    class_results = []
+    for t in poli_tweets:
+        class_results.append(my_classifier.classify(extract_features(t.split(), all_tweets_sentiments)))
+    user_party = Counter(class_results).most_common()
+    party_percent = float(user_party[0][1]) / len(poli_tweets)
+    return [str(user_party[0][0]), str(party_percent)]
+    # print(user_party[0][0] + " " + str(party_percent))
+
+
+# GET FRIENDS OF USER. HAD TO SET LIMITS LOW BECAUSE IT WAS TAKING TO LONG
+def get_my_friends(twitter_api, id):
+    friends_ids, followers_ids = get_friends_followers_ids(twitter_api,
+                                                           user_id=id,
+                                                           friends_limit=15,
+                                                           followers_limit=2)
+
+    # make a dictionary for the top five user ids and their follower counts
+    friend_user_profiles = get_user_profile(twitter_api, user_ids=friends_ids)
+    results = []
+    for prof in friend_user_profiles.keys():
+        results.append(friend_user_profiles[prof]["screen_name"])
+        # results.append(prof.value["screen_name"])
+    print(results)
+    return results
+
+def crawl_recip_friends(twitter_api, screen_name):
+
+    social_network = nx.Graph()
+
+    # Resolve the ID for screen_name and start working with IDs for consistency
+    # in storage
+    seed_id = str(twitter_api.users.show(screen_name=screen_name)['id'])
+
+    next_queue = get_my_friends(twitter_api, seed_id)
+    edge_pairs = [(seed_id, x) for x in next_queue]
+    social_network.add_edges_from(edge_pairs)
+    return social_network
 
 def main():
     twitter_api = oauth_login()
-    tweets = harvest_user_timeline(twitter_api, screen_name="NancyPelosi", max_results=3300)
-    save_json("NancyPelosi_tweets_timeline", tweets)
+    my_classifier, all_tweets_sentiments = create_classifier()
+    # REPLACE seanhannity WITH USER SCREEN NAME OF YOUR CHOICE
+    mygraph = crawl_recip_friends(twitter_api, 'seanhannity')
+    print "List of my nodes " + str(mygraph.nodes())
 
-    # likes = harvest_user_likes(twitter_api, screen_name="reallychizzy")
-    # print(likes)
-    # save_json("likes", likes)
+    color_map = []
 
+# GOES THROUGH THE NODES OF THE GRAPH IN ORDER TO APPLY THE PARTY_OF_USER() function
+# TO EACH OF THE ACCOUNTS THAT THE USER FOLLOWS.
+# IF THE NODE IS A REPUBLICAN, IT WILL BE red
+# IF IT IS DEMOCRAT, IT WILL BE blue
+# TRYING TO VISUALIZE THE POLITICAL SOCIAL NETWORK OF THE USER
+    for nd in mygraph.nodes:
+        # HAD TO TAKE OUT THE USER NODE BECAUSE IT IS NOT A SCREEN NAME
+        #  AND WAS CAUSING ISSUES
+        if nd == '41634520':
+            continue
+        party, percent = party_of_user(twitter_api, my_classifier, all_tweets_sentiments, screen_name=nd)
+        print(party + " " + percent)
 
-    # ----- Dont run this code again unless you change the filename, it will
-    # ----- overwrite the json data files
-    # get_republican_training_data(twitter_api,"gop")
-    # get_democrat_training_data(twitter_api,"dnc")
+        if party == "republican":
+            color_map.append('red')
+        else:
+            color_map.append('blue')
+
+        # draw my graph and save it
+    nx.draw(mygraph, node_color = color_map)
+    plt.savefig("mygraph.png")
+    plt.show()
 
 
 if __name__ == "__main__":
